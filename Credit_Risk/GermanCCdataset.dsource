@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 39,
+  "id": "6beac5a8-cf78-4682-9aa6-eea31ebe0a01",
+  "activities": [
+    {
+      "id": "b71d5ada-0b79-4cb3-a352-c69c97fe47eb",
+      "name": "GermanCCdataset",
+      "blocks": [
+        {
+          "id": "3194ccdc-74f2-4db7-af91-58ff700d1711",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 1,
+              "resourceDetails": [
+                {
+                  "path": "https://mlblobstor.blob.core.windows.net/mllab/GermanCCdataset.csv",
+                  "sas": null,
+                  "storageAccountName": null,
+                  "storageAccountKey": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "e80661b1-ed4e-4972-8e11-d680f4d0218b",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 1,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "04d266f6-88d9-4e9c-bf85-e79678e70d2b",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "Installment rate in percentage of disposable income",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Number of people being liable to provide maintenance for",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Number of existing credits at this bank",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Duration in months",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Age in years",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Credit amount",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Present residence since",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Credit Risk",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "8572ca4b-4d52-41d0-9d5e-336c07ee2ce2",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "78a88ac1-a1a5-4c70-88d4-d4eb45b89bba",
+                "sampleRevision": "3d5363bf-bfb4-40bc-87a2-8c2a02572602",
+                "sampleName": "Top 10000",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 0,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "78a88ac1-a1a5-4c70-88d4-d4eb45b89bba"
+          }
+        },
+        {
+          "id": "aa09aeaf-6a48-4577-b9ed-4dc9efb9a100",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "1217cd2a-aa67-4ae9-9615-a8a6b842fae0",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "b71d5ada-0b79-4cb3-a352-c69c97fe47eb",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

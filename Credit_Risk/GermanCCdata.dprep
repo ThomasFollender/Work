@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 39,
+  "id": "d36dab4a-3ffe-4477-8139-29939c3bc55f",
+  "activities": [
+    {
+      "id": "d141e254-e1df-4f1f-8bb4-8cafa08a13a3",
+      "name": "GermanCCdataset",
+      "blocks": [
+        {
+          "id": "bc488bb1-328f-41c0-bfb7-bec893f7c642",
+          "type": "Microsoft.DPrep.ReferenceActivityBlock",
+          "arguments": {
+            "reference": {
+              "referenceType": 1,
+              "referenceContainerPath": "./GermanCCdataset.dsource",
+              "referencedActivityId": "b71d5ada-0b79-4cb3-a352-c69c97fe47eb",
+              "referencedBranchId": null,
+              "referencedStep": null,
+              "anonymousSteps": null
+            }
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "1152155c-6f29-4584-a200-228cd5873d8a",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "d141e254-e1df-4f1f-8bb4-8cafa08a13a3",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

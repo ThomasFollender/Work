@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 39,
+  "id": "68936d7d-0237-4173-bef0-3cca5e1fcedf",
+  "activities": [
+    {
+      "id": "b04d3d38-3e7e-4525-bd1e-dbb0038ca374",
+      "name": "German Credit Card UCI dataset",
+      "blocks": [
+        {
+          "id": "6e61b844-5ccc-41b6-9248-9da051c1d4dd",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "C:\\Users\\Thomas Follender\\OneDrive - Microsoft\\Customers\\Van Lanschot\\German Credit Card UCI dataset.csv"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "c1628eda-3376-4ca7-842a-ea4ec908b9a4",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 0,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "1bfcd367-2060-4ae2-b02e-db2b96e35477",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "Column11",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column16",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column2",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column5",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column8",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column13",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column18",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column21",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "73762002-26a8-4618-9c7b-96fc6034cf8e",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "3bb3d4f1-5426-454e-8e62-464003c08dc7",
+                "sampleRevision": "c2a33784-1bf7-406e-aac0-e73d701fe89d",
+                "sampleName": "Top 10000",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 0,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "3bb3d4f1-5426-454e-8e62-464003c08dc7"
+          }
+        },
+        {
+          "id": "57e93f05-8d31-49f5-a316-2edcb7a34619",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "3d713381-8e00-4528-a764-31685a0a4b86",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "b04d3d38-3e7e-4525-bd1e-dbb0038ca374",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}
